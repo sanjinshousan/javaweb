@@ -1,0 +1,38 @@
+Servlet 创建直到毁灭的整个过程如下：
+1. 利用init（）方法进行初始化
+2. 调用service（）方法来处理客户端的请求
+3. Servlet是通过调用destroy方法来终止
+4. 最后，Servlet通过由jvm的垃圾回收机制来回收的
+
+init（）
+	这方法只调用一次，在后续每次用户传输请求的时候不再调用了。
+	Servlet创建于调用对应与该Servlet的URL时候，当用户调用一个Servlet时，就会创建一个Servlet实例，每一个用户请求都会产生一个新的线程，适当的时候移交给doGet或doPost。
+
+	public void init() throws ServletException{
+		// 初始化代码
+	}
+
+
+service()方法
+	
+	Servlet调用service()方法处理客户端的请求，并且反馈给客户端。
+	每次服务器接到一个Servlet请求的时候，会产生一个新的线程并按照请求的类型调用方法（GET、POST,PUT,DELETE)
+
+	public void service(ServletRequest request, Servlet response) throws ServletException,IOException{
+	
+	}
+
+doGet()来自于一个URL的请求，或者一个未指定METHOD的HTML表单
+	public void doGet(HttpServletRequest request,HttpServletRequest response) throws ServletException,IOException{
+	
+	}
+	
+
+doPost()请求来自于一个置顶的METHOD为POST的HTML表单
+	public void doPost(HttpServletRequst request,HttpServlet response) throws ServletException,IOException{
+
+	}
+
+destroy()
+	跟init（）方法一样，只调用一次，但是会让Servlet关闭数据库连接、停止后台线程、把Cookie列表或点击计数器放入磁盘中去，并执行其他类似的清理活动。
+	

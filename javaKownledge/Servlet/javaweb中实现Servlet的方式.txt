@@ -1,0 +1,11 @@
+Servlet 是Java web三大组件之一，属于动态资源，作用是处理请求，服务器把接到的请求交给Servlet处理
+在Servlet中通常需要三点：
+1. 接受数据请求
+2. 处理请求
+3. 完成响应
+
+Servlet类需要自己完成，每个Servlet类都必须要实现javax.servlet.Servlet 借口
+
+:wq
+
+
